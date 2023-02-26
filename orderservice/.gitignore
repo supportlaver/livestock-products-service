@@ -1,7 +1,7 @@
 HELP.md
 .gradle
 build/
-templates/
+src/main/rescoures/templates
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
 !**/src/test/**/build/
