@@ -16,12 +16,12 @@ public class OrderLiveStock {
     @Column(name="order_livestock_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="livestock_id")
     private LiveStock liveStock;
 
 
-    @ManyToOne
+    @ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name="order_id")
     private Order order;
 

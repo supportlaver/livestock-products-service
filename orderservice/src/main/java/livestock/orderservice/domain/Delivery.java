@@ -20,7 +20,7 @@ public class Delivery {
     @Embedded
     private Address address;
 
-    @OneToOne(mappedBy = "delivery")
+    @OneToOne(mappedBy = "delivery",fetch = FetchType.LAZY)
     private Order order;
 
     private int expectArrive; //도착 시간 예정

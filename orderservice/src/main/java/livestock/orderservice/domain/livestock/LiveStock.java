@@ -22,7 +22,7 @@ public class LiveStock {
 
     private int stockQuantity;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_livestock_id")
     private OrderLiveStock orderLiveStock;
 

@@ -19,7 +19,6 @@ public class Member {
 
     private String name;
 
-
     @OneToMany(mappedBy = "member")
     private List<Order> orders;
 
