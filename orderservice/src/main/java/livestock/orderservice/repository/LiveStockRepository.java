@@ -25,7 +25,6 @@ public class LiveStockRepository {
         LiveStock findLiveStock = em.find(LiveStock.class, id);
         return findLiveStock;
     }
-
     /**
      * 조회는 모두 조회하는 경우와 가격 , 축산물 종류(등심,안심,삼겹살..등등)으로도 검색할 수 있어야 한다.
      */

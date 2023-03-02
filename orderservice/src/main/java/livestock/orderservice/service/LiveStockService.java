@@ -30,6 +30,16 @@ public class LiveStockService {
         return updateLiveStock;
     }
 
+    @Transactional
+    public LiveStock updateLiveStock(Long id,LiveStock liveStock){
+        LiveStock findLiveStock = liveStockRepository.findById(id);
+        findLiveStock.setStockQuantity(liveStock.getStockQuantity());
+        findLiveStock.setName(liveStock.getName());
+        findLiveStock.setOrderLiveStock(liveStock.getOrderLiveStock());
+        findLiveStock.setPrice(liveStock.getPrice());
+        return findLiveStock;
+    }
+
     //축산물 조회
     public LiveStock findOne(Long id){
         return liveStockRepository.findById(id);
