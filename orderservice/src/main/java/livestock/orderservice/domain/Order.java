@@ -71,4 +71,38 @@ public class Order {
 
     public Order() {
     }
+
+    /**
+     * 주문 생성 메소드
+     */
+    public static Order createOrder(Member member , Delivery delivery, OrderLiveStock... orderLiveStocks){
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        for (OrderLiveStock o : orderLiveStocks) {
+            order.addLiveStocks(o);
+        }
+        return order;
+    }
+
+    /**
+     * 비즈니스 로직 추가
+     */
+    public void cancel(){
+        if (delivery.getDeliveryStatus() == DeliveryStatus.COMP){
+            throw new RuntimeException("이미 배송완료된 상품은 취소가 불가능 합니다.");
+        }
+
+        this.setOrderStatus(OrderStatus.CANCEL);
+        for (OrderLiveStock orderLiveStock : orderLiveStocks) {
+            orderLiveStock.cancel();
+        }
+    }
+    public int getTotalPrice(){
+        int totalPrice = 0;
+        for (OrderLiveStock orderLiveStock : orderLiveStocks) {
+            totalPrice += orderLiveStock.getOrderPrice();
+        }
+        return totalPrice;
+    }
 }

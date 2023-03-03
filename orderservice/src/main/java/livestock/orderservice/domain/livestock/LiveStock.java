@@ -27,6 +27,18 @@ public class LiveStock {
     private OrderLiveStock orderLiveStock;
 
 
+    /**
+     * 비즈니스 로직 추가
+     */
+    public void addStockQuantity(int amount){
+        this.stockQuantity+=amount;
+    }
+
+    public void removeStockQuantity(int amount){
+        this.stockQuantity-=amount;
+    }
+
+
 
 
 }

@@ -29,5 +29,24 @@ public class OrderLiveStock {
 
     private int count;
 
+    /**
+     * OrderLiveStock 생성 메소드
+     */
+    public static OrderLiveStock createOrderLiveStock(LiveStock liveStock , int orderPrice, int count){
+        OrderLiveStock orderLiveStock = new OrderLiveStock();
+        orderLiveStock.setLiveStock(liveStock);
+        orderLiveStock.setOrderPrice(orderPrice);
+        orderLiveStock.setCount(count);
+        return orderLiveStock;
+    }
+    /**
+     * 비즈니스 로직 추가
+     */
+    public void cancel() {
+        getLiveStock().addStockQuantity(count);
+    }
+    public int getTotalPrice(){
+        return getOrderPrice() * getCount();
+    }
 
 }
