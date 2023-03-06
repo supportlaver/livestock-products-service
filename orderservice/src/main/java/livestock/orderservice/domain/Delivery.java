@@ -25,6 +25,7 @@ public class Delivery {
 
     private int expectArrive; //도착 시간 예정
 
-    public Delivery() {
+    public Delivery(Address address) {
+        this.address=address;
     }
 }

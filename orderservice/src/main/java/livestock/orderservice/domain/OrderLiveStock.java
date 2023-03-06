@@ -37,6 +37,7 @@ public class OrderLiveStock {
         orderLiveStock.setLiveStock(liveStock);
         orderLiveStock.setOrderPrice(orderPrice);
         orderLiveStock.setCount(count);
+        liveStock.removeStockQuantity(count);
         return orderLiveStock;
     }
     /**
@@ -46,7 +47,10 @@ public class OrderLiveStock {
         getLiveStock().addStockQuantity(count);
     }
     public int getTotalPrice(){
+        System.out.println("LiveStock__.getOrderPrice = " + this.getOrderPrice());
+        System.out.println("LiveStock__.getStockQuantity = " + this.getLiveStock().getStockQuantity());
         return getOrderPrice() * getCount();
+
     }
 
 }

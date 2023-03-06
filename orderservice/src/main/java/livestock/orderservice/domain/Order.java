@@ -7,6 +7,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -82,6 +83,9 @@ public class Order {
         for (OrderLiveStock o : orderLiveStocks) {
             order.addLiveStocks(o);
         }
+        order.setOrderStatus(OrderStatus.ORDER);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        order.setOrderDate(localDateTime);
         return order;
     }
 
@@ -101,7 +105,7 @@ public class Order {
     public int getTotalPrice(){
         int totalPrice = 0;
         for (OrderLiveStock orderLiveStock : orderLiveStocks) {
-            totalPrice += orderLiveStock.getOrderPrice();
+            totalPrice += orderLiveStock.getTotalPrice();
         }
         return totalPrice;
     }

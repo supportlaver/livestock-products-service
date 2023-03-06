@@ -1,6 +1,7 @@
 package livestock.orderservice.domain.livestock;
 
 import livestock.orderservice.domain.OrderLiveStock;
+import livestock.orderservice.exception.NotEnoughStockException;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +36,16 @@ public class LiveStock {
     }
 
     public void removeStockQuantity(int amount){
-        this.stockQuantity-=amount;
+        int restStock = this.stockQuantity-amount;
+
+        if (restStock<0){
+            throw new NotEnoughStockException("need more stock");
+        }
+        this.stockQuantity=restStock;
+
+        //주문이 들어와서 수량을 그만큼 감소시키려고 하는데 감소시켰을때 0보다 작다는건 기존 수량보다 더 많이 주문했다는것이니까 여기서 예외를 터뜨린다.
+
+
     }
 
 
