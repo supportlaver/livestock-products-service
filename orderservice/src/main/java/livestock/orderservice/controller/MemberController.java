@@ -15,7 +15,6 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping
 @RequiredArgsConstructor
 public class MemberController {
 

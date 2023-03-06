@@ -34,7 +34,6 @@ public class OrderService {
         //주문 생성
         Order order = Order.createOrder(findMember,delivery,orderLiveStock);
 
-
         //주문저장
         orderRepository.save(order);
 
