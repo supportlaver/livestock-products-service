@@ -12,6 +12,5 @@ public class PigForm {
     private String name;
     private int price;
     private int stockQuantity;
-
     private String type;
 }

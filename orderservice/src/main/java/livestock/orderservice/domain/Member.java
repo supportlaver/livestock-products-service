@@ -25,4 +25,9 @@ public class Member {
 
     public Member() {
     }
+
+    public Member(Address address, String name) {
+        this.address = address;
+        this.name = name;
+    }
 }

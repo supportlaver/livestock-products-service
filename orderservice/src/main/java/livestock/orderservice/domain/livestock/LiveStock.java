@@ -27,6 +27,14 @@ public class LiveStock {
     @JoinColumn(name="order_livestock_id")
     private OrderLiveStock orderLiveStock;
 
+    public LiveStock() {
+    }
+
+    public LiveStock(String name, int price, int stockQuantity) {
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
+    }
 
     /**
      * 비즈니스 로직 추가

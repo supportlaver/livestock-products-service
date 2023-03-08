@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Getter
@@ -32,6 +33,13 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus;
 
+    private int expectedDeliveryDate;
+
+
+    public int calculateDeliveryDate(){
+        Random random = new Random();
+        return random.nextInt(5)+1;
+    }
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderLiveStock> orderLiveStocks = new ArrayList<>();

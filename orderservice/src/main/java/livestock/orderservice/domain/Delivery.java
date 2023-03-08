@@ -28,4 +28,7 @@ public class Delivery {
     public Delivery(Address address) {
         this.address=address;
     }
+
+    public Delivery() {
+    }
 }
