@@ -20,6 +20,7 @@ public class TestDataInit {
 
     @PostConstruct
     public void init(){
+
         memberService.join(new Member(new Address("호구포로 13-1","101동 3202호"),"김지원"));
         memberService.join(new Member(new Address("호구포로 13-1","103동 3001호"),"김규완"));
 

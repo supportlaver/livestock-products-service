@@ -1,4 +1,4 @@
-package livestock.orderservice.controller;
+package livestock.orderservice.web.controller;
 
 
 import livestock.orderservice.domain.Member;
@@ -53,8 +53,6 @@ public class OrderController {
     public String cancel(@PathVariable("orderId") Long orderId){
         orderService.orderCancel(orderId);
         return "redirect:/";
-
-
     }
 
 

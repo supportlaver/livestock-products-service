@@ -1,21 +1,33 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header" />
+<style>
+      .fieldError {
+          border-color: #bd2130;
+} </style>
 <body>
 <div class="container">
   <div th:replace="fragments/bodyHeader :: bodyHeader"/>
-  <form th:action="@{/items/new}" th:object="${form}" method="post">
+  <form th:action="@{/items/new}" th:object="${pigForm}" method="post">
     <div class="form-group">
       <label th:for="name">축산물 종류</label>
-      <input type="text" th:field="*{name}" class="form-control"
-             placeholder="이름을 입력하세요"> </div>
+      <input type="text" th:field="*{name}" class="form-control" placeholder="이름을 입력하세요"
+             th:class="${#fields.hasErrors('name')}? 'form-control fieldError' : 'form-control'">
+      <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Incorrect date</p>
+    </div>
     <div class="form-group">
       <label th:for="price">가격(1kg당)</label>
       <input type="number" th:field="*{price}" class="form-control" placeholder="가격을 입력하세요">
     </div>
     <div class="form-group">
       <label th:for="stockQuantity">수량(kg기준)</label>
-      <input type="number" th:field="*{stockQuantity}" class="form-control" placeholder="수량을 입력하세요"> </div>
+      <input type="number" th:field="*{stockQuantity}" class="form-control"
+             placeholder="수량을 입력하세요"
+             th:class="${#fields.hasErrors('stockQuantity')}? 'form-control fieldError' : 'form-control'">
+      <p th:if="${#fields.hasErrors('stockQuantity')}"
+         th:errors="*{stockQuantity}">Incorrect date</p>
+    </div>
+
     <div class="form-group">
       <label th:for="type">부위 이름</label>
       <input type="text" th:field="*{type}" class="form-control"

@@ -23,6 +23,8 @@ public class LiveStock {
 
     private int stockQuantity;
 
+    private String type;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="order_livestock_id")
     private OrderLiveStock orderLiveStock;

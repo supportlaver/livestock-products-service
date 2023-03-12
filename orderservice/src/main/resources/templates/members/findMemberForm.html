@@ -18,6 +18,9 @@
         <td th:text="${member.name}"></td>
         <td th:text="${member.address?.roadName}"></td>
         <td th:text="${member.address?.moreInfo}"></td>
+        <td>
+          <a href="#" th:href="@{/members/{id}/edit (id=${member.id})}" class="btn btn-primary" role="button">수정</a>
+        </td>
       </tr>
       </tbody>
     </table>

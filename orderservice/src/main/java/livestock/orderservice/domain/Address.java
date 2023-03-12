@@ -13,8 +13,16 @@ public class Address {
     protected Address() {
     }
 
-    public Address(String roadName, String moreInfo) {
-        this.roadName = roadName;
-        this.moreInfo = moreInfo;
+    public Address(Address address){
+        this.roadName= address.getRoadName();
+        this.moreInfo=address.getMoreInfo();
     }
+
+    public Address(String roadName, String moreInfo){
+        this.roadName=roadName;
+        this.moreInfo=moreInfo;
+    }
+
+
+
 }

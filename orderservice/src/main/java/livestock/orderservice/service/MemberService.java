@@ -31,11 +31,13 @@ public class MemberService {
     }
 
     //회원 수정
+
     @Transactional
-    public Member updateMember(Member member,String updateName){
-        Member updateMember = memberRepository.findOne(member.getId());
-        updateMember.setName(updateName);
-        return updateMember;
+    public Member updateMember(Long id, Member updateMember){
+        Member findMember = memberRepository.findOne(id);
+        findMember.setName(updateMember.getName());
+        findMember.setAddress(updateMember.getAddress());
+        return findMember;
     }
 
     //회원 삭제
