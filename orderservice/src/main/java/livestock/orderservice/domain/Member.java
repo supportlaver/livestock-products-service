@@ -23,11 +23,23 @@ public class Member {
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
+    private String loginId;
+    private String password;
+
+
+
     public Member() {
     }
 
     public Member(Address address, String name) {
         this.address = address;
         this.name = name;
+    }
+
+    public Member(Address address, String name, String loginId, String password) {
+        this.address = address;
+        this.name = name;
+        this.loginId = loginId;
+        this.password = password;
     }
 }

@@ -43,6 +43,8 @@ public class MemberController {
         Member member = new Member();
         member.setName(memberForm.getName());
         member.setAddress(address);
+        member.setPassword(memberForm.getPassword());
+        member.setLoginId(memberForm.getLoginId());
         memberService.join(member);
         return "redirect:/";
     }

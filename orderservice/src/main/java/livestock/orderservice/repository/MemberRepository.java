@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class MemberRepository {
@@ -40,6 +41,17 @@ public class MemberRepository {
     //회원 삭제
     public void deleteMember(Member member){
         em.remove(member);
+    }
+
+    //로그인 ID 로 회원 찾기
+    public Optional<Member> findByLoginId(String loginId){
+        List<Member> all = findAll();
+        for(Member m : all){
+            if (m.getLoginId().equals(loginId)){
+                return Optional.of(m);
+            }
+        }
+        return Optional.empty();
     }
 
 

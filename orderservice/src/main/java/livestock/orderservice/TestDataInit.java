@@ -20,9 +20,8 @@ public class TestDataInit {
 
     @PostConstruct
     public void init(){
-
-        memberService.join(new Member(new Address("호구포로 13-1","101동 3202호"),"김지원"));
-        memberService.join(new Member(new Address("호구포로 13-1","103동 3001호"),"김규완"));
+        memberService.join(new Member((new Address("호구포로 13-1","101동 3202호")),"테스터","test","test!"));
+        memberService.join(new Member((new Address("호구포로 13-1","101동 3203호")),"테스터2","test2","test2!"));
 
         liveStockService.addLiveStock(new LiveStock("돼지고기",10000,100));
         liveStockService.addLiveStock(new LiveStock("소고기",18000,50));
