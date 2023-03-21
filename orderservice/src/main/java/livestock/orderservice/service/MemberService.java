@@ -31,7 +31,6 @@ public class MemberService {
     }
 
     //회원 수정
-
     @Transactional
     public Member updateMember(Long id, Member updateMember){
         Member findMember = memberRepository.findOne(id);

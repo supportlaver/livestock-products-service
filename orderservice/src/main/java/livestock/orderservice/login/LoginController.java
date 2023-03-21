@@ -30,6 +30,8 @@ public class LoginController {
     public String loginCheck(@Validated @ModelAttribute("loginForm") LoginForm form, BindingResult bindingResult,
                              HttpServletRequest request, @RequestParam(defaultValue = "/") String redirectURL){
 
+        log.info("redirectURL = {} ",redirectURL);
+
         if(bindingResult.hasErrors()){
             return "login/loginForm";
         }
@@ -43,6 +45,9 @@ public class LoginController {
 
         HttpSession session = request.getSession();
         session.setAttribute(SessionConst.LOGIN_MEMBER,loginMember);
+
+        log.info("redirectURL222 = {} ",redirectURL);
+
         return "redirect:" + redirectURL;
     }
 
